@@ -1,0 +1,128 @@
+.appcontainer {
+  height: 100%;
+  width: 100%;
+  background-color: beige;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.inputcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 30%;
+  width: 100%;
+}
+.input {
+  display: flex;
+  width: 70%;
+  height: 30%;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  gap: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+input {
+  width: 80%;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  text-shadow: none;
+  background-color: aqua;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: aliceblue;
+  font-size: 20px;
+}
+
+button {
+  width: 20%;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  text-shadow: none;
+  background-color: rgb(126, 41, 143);
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: aliceblue;
+}
+
+.lists {
+  height: 95%;
+  width: 100%;
+  background-color: aquamarine;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  overflow-y: scroll;
+  /* Hide scrollbar for Chrome, Safari, and other WebKit browsers */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.lists::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+font {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.fade {
+  opacity: 0%;
+  transition-duration: 1s;
+}
+
+.huh {
+  padding: 10px;
+  align-items: center;
+  border-radius: 10px;
+  height: 11%;
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: aliceblue;
+  background-color: aqua;
+  overflow: hidden;
+}
+.animate {
+  animation: slideout 1s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards,
+    small 0.5s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards 0.5s;
+}
+@keyframes slideout {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes small {
+  from {
+    margin-bottom: 10px;
+    padding: 10px;
+    height: 11%;
+  }
+  to {
+    height: 0%;
+    margin-bottom: 0px;
+    padding: 0px;
+  }
+}

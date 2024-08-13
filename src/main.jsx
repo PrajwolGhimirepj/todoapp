@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import Lists from "./Lists";
-import Card from "./Card/Card";
+
+import Layout from "./Layout/Layout";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Lists />
+    <Layout />
   </StrictMode>
 );

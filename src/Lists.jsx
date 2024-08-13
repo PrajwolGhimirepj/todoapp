@@ -1,65 +1,68 @@
-import React, { useState, useRef, useEffect } from "react";
-import Card from "./Card/Card";
+import React, { useRef, useState } from "react";
+import "./List.css";
 
-const Lists = () => {
+const List = () => {
   const [List, setList] = useState([]);
   const [newList, setNewList] = useState("");
-  const [listToDelete, setListToDelete] = useState(null);
-  const listRef = useRef([]);
+  const [deleteIndex, setDeleteIndex] = useState(null);
+  const ListRef = useRef();
 
-  const handleInput = (event) => {
+  const handelInput = (event) => {
     setNewList(event.target.value);
   };
 
   const addList = () => {
     if (newList.trim() !== "") {
       setList([...List, newList]);
-      setNewList(""); // Clear the input field after adding the task
+      setNewList("");
     }
   };
 
-  const deleteTask = () => {
-    if (listToDelete !== null) {
-      // Apply the 'deleting' class to the item
-      listRef.current[listToDelete].classList.add("deleting");
+  const deletetask = () => {
+    ListRef.current.classList.add("animate");
 
-      // Wait for the animation to finish before deleting the item
-      setTimeout(() => {
-        const newArray = List.filter((_, index) => listToDelete !== index);
-        setList(newArray);
-        setListToDelete(null);
-      }, 500); // Match this duration to your CSS animation duration
-    }
+    setTimeout(() => {
+      if (deleteIndex !== null) {
+        setDeleteIndex(null);
+        setList(List.filter((_, index) => index !== deleteIndex));
+
+        ListRef.current.classList.remove("animate");
+      }
+    }, 1500);
   };
-
-  useEffect(() => {
-    // Reset the class when the list is updated
-    if (listToDelete !== null && listRef.current[listToDelete]) {
-      listRef.current[listToDelete].classList.remove("deleting");
-    }
-  }, [List]);
 
   return (
     <>
-      <div>
-        <input type="text" value={newList} onChange={handleInput} />
-        <button onClick={addList}>ADD</button>
-        <button onClick={deleteTask}>DELETE</button>
-      </div>
-      <div>
-        <h1>Lists</h1>
-        {List.map((item, index) => (
-          <div
-            ref={(el) => (listRef.current[index] = el)}
-            key={index}
-            onClick={() => setListToDelete(index)}
-          >
-            <Card task={item} />
+      <div className="appcontainer">
+        <div className="inputcontainer">
+          <div className="input font">
+            <input type="text" value={newList} onChange={handelInput} />
+            <button onClick={addList}>Add</button>
+            <button onClick={deletetask}>Delete</button>
           </div>
-        ))}
+        </div>
+
+        <div className="lists">
+          {List.map((context, index) => (
+            <div
+              className="huh "
+              key={index}
+              ref={index === deleteIndex ? ListRef : null}
+              onClick={() => {
+                setDeleteIndex(index);
+              }}
+            >
+              {context}
+            </div>
+          ))}
+        </div>
+        <div>
+          <h1>Delete Index</h1>
+          {deleteIndex !== null ? deleteIndex : "No task selected"}
+        </div>
       </div>
     </>
   );
 };
 
-export default Lists;
+export default List;
