@@ -1,7 +1,6 @@
 .appcontainer {
   height: 100%;
   width: 100%;
-  background-color: beige;
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -10,16 +9,15 @@
 }
 .inputcontainer {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: start;
-  height: 30%;
+  height: 10%;
   width: 100%;
 }
 .input {
   display: flex;
-  width: 70%;
-  height: 30%;
-  padding-left: 10px;
+  width: 100%;
+  height: 70%;
   padding-right: 10px;
   border-radius: 5px;
   gap: 10px;
@@ -29,19 +27,20 @@
 }
 
 input {
-  width: 80%;
+  width: 100%;
   text-decoration: none;
   border: none;
   background-color: transparent;
   outline: none;
   text-shadow: none;
-  background-color: aqua;
+  background-color: #17153b;
   border-radius: 5px;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
   color: aliceblue;
   font-size: 20px;
+  padding-left: 20px;
 }
 
 button {
@@ -51,7 +50,7 @@ button {
   background-color: transparent;
   outline: none;
   text-shadow: none;
-  background-color: rgb(126, 41, 143);
+  background-color: #17153b;
   border-radius: 5px;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -62,8 +61,8 @@ button {
 .lists {
   height: 95%;
   width: 100%;
-  background-color: aquamarine;
-  border-radius: 20px;
+  background-color: #17153b;
+  border-radius: 8px;
   margin: 20px;
   padding: 20px;
   overflow-y: scroll;
@@ -98,18 +97,33 @@ font {
   font-weight: 700;
   font-style: normal;
   color: aliceblue;
-  background-color: aqua;
-  overflow: hidden;
+  background-color: #433d8b;
+  transition-duration: 0.5s;
 }
+.huh:hover {
+  background-color: #443d8ba1;
+}
+
+@keyframes up {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
 .animate {
   animation: slideout 1s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards,
     small 0.5s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards 0.5s;
 }
 @keyframes slideout {
   from {
+    opacity: 100%;
     transform: translateX(0%);
   }
   to {
+    opacity: 0%;
     transform: translateX(120%);
   }
 }
@@ -125,4 +139,31 @@ font {
     margin-bottom: 0px;
     padding: 0px;
   }
+}
+
+.s {
+  height: 12%;
+  box-shadow: 3px 5px #443d8b57;
+}
+
+.context {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.delete {
+  height: 40px;
+  width: 40px;
+
+  z-index: 200;
+  transition-duration: 0.4s;
+}
+
+.delete:hover {
+  height: 40px;
+  width: 50px;
+
+  z-index: 200;
 }
