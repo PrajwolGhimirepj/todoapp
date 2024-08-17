@@ -21,13 +21,10 @@
   padding-right: 10px;
   border-radius: 5px;
   gap: 10px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  font-style: normal;
 }
 
 input {
-  width: 100%;
+  width: 70%;
   text-decoration: none;
   border: none;
   background-color: transparent;
@@ -35,12 +32,14 @@ input {
   text-shadow: none;
   background-color: #17153b;
   border-radius: 5px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
   font-style: normal;
   color: aliceblue;
   font-size: 20px;
   padding-left: 20px;
+  box-shadow: 5px 10px 10px #17153b96;
 }
 
 button {
@@ -52,12 +51,37 @@ button {
   text-shadow: none;
   background-color: #17153b;
   border-radius: 5px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
   font-style: normal;
   color: aliceblue;
+  font-size: 18px;
+  box-shadow: 5px 10px 10px #17153b96;
+}
+.click {
+  animation-name: click;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.12, 0.74, 0.42, 1.32);
 }
 
+@keyframes click {
+  0% {
+    width: 20%;
+  }
+  25% {
+    width: 15%;
+  }
+
+  80% {
+    width: 25%;
+  }
+
+  100% {
+    width: 20%;
+  }
+}
 .lists {
   height: 95%;
   width: 100%;
@@ -68,16 +92,11 @@ button {
   overflow-y: scroll;
   /* Hide scrollbar for Chrome, Safari, and other WebKit browsers */
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  -ms-overflow-style: none;
+  box-shadow: 5px 10px 10px #17153b96; /* Internet Explorer 10+ */
 }
 .lists::-webkit-scrollbar {
   display: none; /* Hide scrollbar */
-}
-
-font {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  font-style: normal;
 }
 
 .fade {
@@ -93,15 +112,19 @@ font {
   width: 100%;
   display: flex;
   margin-bottom: 10px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
   font-style: normal;
-  color: aliceblue;
-  background-color: #433d8b;
+  color: white;
+  background-color: #3c3490;
   transition-duration: 0.5s;
+  animation-name: up;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.03, 0.84, 0.18, 1.06);
 }
 .huh:hover {
-  background-color: #443d8ba1;
+  background-color: #5b52c6a1;
 }
 
 @keyframes up {
@@ -114,8 +137,8 @@ font {
 }
 
 .animate {
-  animation: slideout 1s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards,
-    small 0.5s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards 0.5s;
+  animation: slideout 0.5s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards,
+    small 0.5s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards 0.3s;
 }
 @keyframes slideout {
   from {
@@ -141,11 +164,6 @@ font {
   }
 }
 
-.s {
-  height: 12%;
-  box-shadow: 3px 5px #443d8b57;
-}
-
 .context {
   height: 100%;
   width: 100%;
@@ -156,14 +174,13 @@ font {
 .delete {
   height: 40px;
   width: 40px;
-
   z-index: 200;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
 }
 
 .delete:hover {
-  height: 40px;
-  width: 50px;
-
+  height: 45px;
+  width: 40px;
   z-index: 200;
+  transition-duration: 0.4s;
 }

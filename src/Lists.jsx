@@ -1,52 +1,58 @@
 import React, { useRef, useState } from "react";
 import "./List.css";
 import Delete from "./Rive/Delete";
+import { useEffect } from "react";
 
 const List = () => {
-  const [List, setList] = useState([]);
-  const [newList, setNewList] = useState("");
-  const [deleteIndex, setDeleteIndex] = useState(null);
+  const [list, setList] = useState([]);
+  const [newItem, setNewItem] = useState();
   const [hover, setHover] = useState(null);
-  const ListRef = useRef();
+  const itemRefs = useRef({});
+  const inputeRef = useRef();
+  const buttonRef = useRef();
 
-  // if (hover === true) {
-  //   console.log("hover");
-  // } else if (hover === false) {
-  //   console.log("hoveroff");
-  // }
+  useEffect(() => {
+    inputeRef.current.focus();
+  }, []);
 
-  const handelInput = (event) => {
-    setNewList(event.target.value);
+  const handleInput = (event) => {
+    setNewItem(event.target.value);
   };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      addList();
+      addItem();
     }
   };
 
-  const handelCLick = () => {
-    ListRef.current.classList.toggle("s");
-  };
-
-  const addList = () => {
-    if (newList.trim() !== "") {
-      setList([...List, newList]);
-      setNewList("");
+  const handleClick = (index) => {
+    if (itemRefs.current[index]) {
     }
   };
 
-  const deletetask = () => {
-    ListRef.current.classList.add("animate");
-    ListRef.current.classList.remove("s");
-
+  const addItem = () => {
+    buttonRef.current.classList.add("click");
     setTimeout(() => {
-      if (deleteIndex !== null) {
-        setDeleteIndex(null);
-        setList(List.filter((_, index) => index !== deleteIndex));
-        ListRef.current.classList.remove("animate");
-      }
-    }, 1000);
+      buttonRef.current.classList.remove("click");
+    }, 900);
+    if (newItem.trim() !== "") {
+      setList((prevList) => [
+        ...prevList,
+        { id: Date.now(), content: newItem },
+      ]);
+      setNewItem("");
+    }
+  };
+
+  const deleteItem = (id) => {
+    const index = list.findIndex((item) => item.id === id);
+    if (index !== -1 && itemRefs.current[id]) {
+      itemRefs.current[id].classList.add("animate");
+
+      setTimeout(() => {
+        setList((prevList) => prevList.filter((item) => item.id !== id));
+      }, 1000);
+    }
   };
 
   return (
@@ -55,42 +61,32 @@ const List = () => {
         <div className="inputcontainer">
           <div className="input font">
             <input
+              ref={inputeRef}
+              placeholder=" "
               type="text"
-              value={newList}
-              onChange={handelInput}
-              onKeyDown={handleKeyDown} // Add this line
+              value={newItem}
+              onChange={handleInput}
+              onKeyDown={handleKeyDown}
             />
-            <button onClick={addList}>Add</button>
-            <button onClick={deletetask}>Delete</button>
+            <button ref={buttonRef} className="" onClick={addItem}>
+              Add
+            </button>
           </div>
         </div>
 
         <div className="lists">
-          {List.map((context, index) => (
+          {list.map((item) => (
             <div
-              className="huh "
-              key={index}
-              ref={index === deleteIndex ? ListRef : null}
-              onClick={() => {
-                handelCLick(index);
-              }}
-              onMouseEnter={() => {
-                setHover(true);
-              }}
-              onMouseLeave={() => {
-                setHover(false);
-              }}
+              className="huh"
+              key={item.id}
+              ref={(el) => (itemRefs.current[item.id] = el)}
+              onClick={() => handleClick(item.id)}
+              onMouseEnter={() => setHover(item.id)}
+              onMouseLeave={() => setHover(null)}
             >
-              <div className="context"> {context}</div>
-
-              <div
-                className="delete"
-                onClick={() => {
-                  setDeleteIndex(index);
-                  deletetask();
-                }}
-              >
-                <Delete state={hover} />
+              <div className="context">{item.content}</div>
+              <div className="delete" onClick={() => deleteItem(item.id)}>
+                <Delete state={hover === item.id} />
               </div>
             </div>
           ))}

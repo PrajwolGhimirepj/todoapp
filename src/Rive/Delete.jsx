@@ -1,15 +1,14 @@
+import React, { useEffect } from "react";
 import {
+  useRive,
   useStateMachineInput,
   Layout,
   Fit,
   Alignment,
 } from "@rive-app/react-canvas";
-import React from "react";
-import { useState, useEffect } from "react";
-import { useRive } from "@rive-app/react-canvas";
 import "./Delete.css";
 
-const Delete = (props) => {
+const Delete = ({ state }) => {
   const stateMachines = "State";
   const { rive, RiveComponent } = useRive({
     src: "th.riv",
@@ -21,24 +20,18 @@ const Delete = (props) => {
     }),
   });
 
-  const Up = useStateMachineInput(rive, stateMachines, "hover");
-  const Down = useStateMachineInput(rive, stateMachines, "hover");
+  const hoverInput = useStateMachineInput(rive, stateMachines, "hover");
+
   useEffect(() => {
-    if (props.state === true) {
-      console.log("on");
-      Up.value = true;
-    } else if (props.state === false) {
-      console.log("off");
-      Down.value = false;
+    if (rive && hoverInput) {
+      hoverInput.value = state;
     }
-  }, [props.state]);
+  }, [rive, hoverInput, state]);
 
   return (
-    <>
-      <div className="rivecomponent">
-        <RiveComponent />
-      </div>
-    </>
+    <div className="rivecomponent">
+      <RiveComponent />
+    </div>
   );
 };
 

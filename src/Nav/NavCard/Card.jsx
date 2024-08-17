@@ -1,10 +1,12 @@
 import react from "react";
 import "./Card.css";
 
-const Card = () => {
+const Card = (props) => {
   return (
     <>
-      <div className="card">hi</div>
+      <a href="" className="card">
+        <div>{props.context}</div>
+      </a>
     </>
   );
 };

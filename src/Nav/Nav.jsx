@@ -6,13 +6,10 @@ const Nav = () => {
   return (
     <>
       <div className="nav1">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card context={"Sunday"} />
+        <Card context={"Monday"} />
+        <Card context={"Thuesday"} />
+        <Card context={"idfk"} />
       </div>
     </>
   );
