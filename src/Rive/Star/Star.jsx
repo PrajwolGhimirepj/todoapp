@@ -6,12 +6,11 @@ import {
   Fit,
   Alignment,
 } from "@rive-app/react-canvas";
-import "./Delete.css";
 
-const Delete = ({ state }) => {
-  const stateMachines = "State";
+const Star = ({ state }) => {
+  const stateMachines = "StarState";
   const { rive, RiveComponent } = useRive({
-    src: "th.riv",
+    src: "st.riv",
     stateMachines: stateMachines,
     autoplay: true,
     layout: new Layout({
@@ -20,7 +19,8 @@ const Delete = ({ state }) => {
     }),
   });
 
-  const hoverInput = useStateMachineInput(rive, stateMachines, "hover");
+  const hoverInput = useStateMachineInput(rive, stateMachines, "Hover");
+  const clickinput = useStateMachineInput(rive, stateMachines, "CLick");
 
   useEffect(() => {
     if (rive && hoverInput) {
@@ -29,10 +29,10 @@ const Delete = ({ state }) => {
   }, [rive, hoverInput, state]);
 
   return (
-    <div className="rivecomponent">
+    <div className="rivecomponentStar">
       <RiveComponent />
     </div>
   );
 };
 
-export default Delete;
+export default Star;

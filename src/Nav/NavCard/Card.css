@@ -6,17 +6,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: aliceblue;
   margin-bottom: 10px;
   font-size: 20px;
   transition-duration: 0.4s;
   text-decoration: none;
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
 }
 
 .card:hover {
   background-color: rgba(23, 30, 86, 0.612);
+}
+
+a {
+  color: aliceblue;
 }

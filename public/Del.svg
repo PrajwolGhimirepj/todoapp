@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 425.15 525.49">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 34px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #ff1549;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-width: 20px;
+      }
+    </style>
+  </defs>
+  <rect id="Cover" class="cls-1" x="17" y="78.53" width="391.15" height="84.77" rx="42.38" ry="42.38"/>
+  <path id="Can" class="cls-1" d="M375.62,161.91v292.86c0,29.66-24.05,53.71-53.71,53.71H102.33c-29.66,0-53.71-24.05-53.71-53.71V161.91"/>
+  <path id="Handel" class="cls-1" d="M155.74,63.26c0-25.55,25.72-46.26,57.45-46.26s57.45,20.71,57.45,46.26"/>
+  <g id="Dec">
+    <rect class="cls-2" x="208.13" y="280.23" width="9.19" height="169.02" rx="4.6" ry="4.6"/>
+    <rect class="cls-2" x="282.68" y="279.47" width="9.19" height="169.02" rx="4.6" ry="4.6"/>
+    <rect class="cls-2" x="132.55" y="278.27" width="9.19" height="169.02" rx="4.6" ry="4.6"/>
+  </g>
+</svg>

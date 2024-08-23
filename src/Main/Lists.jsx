@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./List.css";
-import Delete from "./Rive/Delete";
+import Delete from "../Rive/Delete/Delete";
 import { useEffect } from "react";
+import Star from "../Rive/Star/Star";
 
 const List = () => {
   const [list, setList] = useState([]);
@@ -10,6 +11,13 @@ const List = () => {
   const itemRefs = useRef({});
   const inputeRef = useRef();
   const buttonRef = useRef();
+
+  const [click, setClick] = useState();
+
+  // const handelFav = () => {
+  //   setClick(true);
+  //   console.log(click);
+  // };
 
   useEffect(() => {
     inputeRef.current.focus();
@@ -30,6 +38,7 @@ const List = () => {
     }
   };
 
+  // Adding Items
   const addItem = () => {
     buttonRef.current.classList.add("click");
     setTimeout(() => {
@@ -44,6 +53,7 @@ const List = () => {
     }
   };
 
+  // Deleteing Items
   const deleteItem = (id) => {
     const index = list.findIndex((item) => item.id === id);
     if (index !== -1 && itemRefs.current[id]) {
@@ -59,22 +69,23 @@ const List = () => {
     <>
       <div className="appcontainer">
         <div className="inputcontainer">
-          <div className="input font">
+          <div className="input">
             <input
+              className="font"
               ref={inputeRef}
-              placeholder=" "
+              placeholder="Enter Lists here !! "
               type="text"
               value={newItem}
               onChange={handleInput}
               onKeyDown={handleKeyDown}
             />
-            <button ref={buttonRef} className="" onClick={addItem}>
+            <button ref={buttonRef} className="font" onClick={addItem}>
               Add
             </button>
           </div>
         </div>
 
-        <div className="lists">
+        <div className="lists font">
           {list.map((item) => (
             <div
               className="huh"
@@ -84,9 +95,13 @@ const List = () => {
               onMouseEnter={() => setHover(item.id)}
               onMouseLeave={() => setHover(null)}
             >
-              <div className="context">{item.content}</div>
+              <div className="contextt">{item.content}</div>
+
               <div className="delete" onClick={() => deleteItem(item.id)}>
                 <Delete state={hover === item.id} />
+              </div>
+              <div className="delete">
+                <Star state={hover === item.id} />
               </div>
             </div>
           ))}

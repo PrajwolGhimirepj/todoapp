@@ -1,8 +1,9 @@
 import React from "react";
 import "./Layout.css";
-import List from "../Lists";
+import List from "../Main/Lists";
 import Nav from "../Nav/Nav";
-import Info from "../SideInfo/info";
+import Help from "../Info/Help/Help";
+import Info from "../Info/TopInfo/info";
 
 const Layout = () => {
   return (
@@ -17,6 +18,7 @@ const Layout = () => {
         </div>
         <div className="info">
           <Info />
+          <Help />
         </div>
       </div>
     </>

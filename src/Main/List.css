@@ -1,3 +1,13 @@
+.font {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: initial;
+}
+
 .appcontainer {
   height: 100%;
   width: 100%;
@@ -19,26 +29,22 @@
   width: 100%;
   height: 70%;
   padding-right: 10px;
-  border-radius: 5px;
   gap: 10px;
+
+  border-radius: 0.4rem;
 }
 
 input {
-  width: 70%;
+  padding: 20px;
+  width: 100%;
   text-decoration: none;
   border: none;
   background-color: transparent;
   outline: none;
   text-shadow: none;
   background-color: #17153b;
-  border-radius: 5px;
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  color: aliceblue;
-  font-size: 20px;
-  padding-left: 20px;
+  border-radius: 0.2rem;
+
   box-shadow: 5px 10px 10px #17153b96;
 }
 
@@ -50,15 +56,13 @@ button {
   outline: none;
   text-shadow: none;
   background-color: #17153b;
-  border-radius: 5px;
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  color: aliceblue;
-  font-size: 18px;
+  border-radius: 0.4rem;
   box-shadow: 5px 10px 10px #17153b96;
 }
+button:hover {
+  background-color: #17153b88;
+}
+
 .click {
   animation-name: click;
   animation-duration: 0.6s;
@@ -86,17 +90,20 @@ button {
   height: 95%;
   width: 100%;
   background-color: #17153b;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
   border-radius: 8px;
   margin: 20px;
   padding: 20px;
   overflow-y: scroll;
-  /* Hide scrollbar for Chrome, Safari, and other WebKit browsers */
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
   -ms-overflow-style: none;
-  box-shadow: 5px 10px 10px #17153b96; /* Internet Explorer 10+ */
+  box-shadow: 5px 10px 10px #17153b96;
 }
 .lists::-webkit-scrollbar {
-  display: none; /* Hide scrollbar */
+  display: none;
 }
 
 .fade {
@@ -105,26 +112,27 @@ button {
 }
 
 .huh {
-  padding: 10px;
+  -webkit-user-drag: element;
+  padding: 20px;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 0.4rem;
   height: 11%;
   width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 10px;
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  color: white;
   background-color: #3c3490;
   transition-duration: 0.5s;
   animation-name: up;
   animation-duration: 0.5s;
   animation-timing-function: cubic-bezier(0.03, 0.84, 0.18, 1.06);
+  transition-timing-function: cubic-bezier(0.29, 1.09, 0.67, 1.24);
 }
 .huh:hover {
-  background-color: #5b52c6a1;
+  background-color: #5c52c65a;
+  height: 12%;
+  width: 98%;
 }
 
 @keyframes up {
@@ -164,7 +172,7 @@ button {
   }
 }
 
-.context {
+.contextt {
   height: 100%;
   width: 100%;
   display: flex;
@@ -176,11 +184,12 @@ button {
   width: 40px;
   z-index: 200;
   transition-duration: 0.2s;
-}
 
+  transform-origin: center;
+}
 .delete:hover {
   height: 45px;
   width: 40px;
   z-index: 200;
-  transition-duration: 0.4s;
+  transition-duration: 0.1s;
 }

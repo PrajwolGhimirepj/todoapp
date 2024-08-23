@@ -4,7 +4,7 @@ import "./Card.css";
 const Card = (props) => {
   return (
     <>
-      <a href="" className="card">
+      <a href="" className="card font ">
         <div>{props.context}</div>
       </a>
     </>

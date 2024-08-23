@@ -9,7 +9,9 @@ const Nav = () => {
         <Card context={"Sunday"} />
         <Card context={"Monday"} />
         <Card context={"Thuesday"} />
-        <Card context={"idfk"} />
+        <Card context={"Wednesday"} />
+        <Card context={"Thursday"} />
+        <Card context={"Friday"} />
       </div>
     </>
   );

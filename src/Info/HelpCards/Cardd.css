@@ -1,0 +1,33 @@
+.cardd {
+  height: 60%;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  position: relative;
+}
+
+.image {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  height: 50%;
+  width: 50%;
+  object-fit: contain;
+}
+.context {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
