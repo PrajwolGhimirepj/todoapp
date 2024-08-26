@@ -4,14 +4,28 @@
   background-color: rgb(23, 30, 86);
   border-radius: 8px;
   display: flex;
-  justify-content: center;
+  padding: 10px;
   align-items: center;
   margin-bottom: 10px;
   font-size: 20px;
   transition-duration: 0.4s;
   text-decoration: none;
+  animation-name: open;
+  animation-duration: 0.3s;
+  transform-origin: center;
+  scale: 0%;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0, 1.12, 0.93, 1.09);
 }
 
+@keyframes open {
+  from {
+    scale: 0%;
+  }
+  to {
+    scale: 100%;
+  }
+}
 .card:hover {
   background-color: rgba(23, 30, 86, 0.612);
 }

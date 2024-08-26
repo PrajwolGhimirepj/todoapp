@@ -23,6 +23,7 @@ const Layout = () => {
 
         <div className="main">
           <List getarr={getarr} />
+          {/* <Nav completedarr={arr} /> */}
         </div>
         <div className="info">
           <Info />

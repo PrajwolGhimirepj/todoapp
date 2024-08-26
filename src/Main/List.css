@@ -145,17 +145,17 @@ button:hover {
 }
 
 .animate {
-  animation: slideout 0.5s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards,
+  animation: slideout 0.4s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards,
     small 0.5s cubic-bezier(0.03, 1.01, 0.46, 0.97) forwards 0.3s;
 }
 @keyframes slideout {
   from {
+    scale: 100%;
     opacity: 100%;
-    transform: translateX(0%);
   }
   to {
+    scale: 0%;
     opacity: 0%;
-    transform: translateX(120%);
   }
 }
 
@@ -188,6 +188,23 @@ button:hover {
   transform-origin: center;
 }
 .icons:hover {
+  height: 45px;
+  width: 40px;
+  z-index: 200;
+  transition-duration: 0.1s;
+}
+
+.iconsC {
+  margin-top: 2px;
+  margin-right: 2px;
+  height: 40px;
+  width: 40px;
+  z-index: 200;
+  transition-duration: 0.2s;
+  transform-origin: center;
+}
+
+.iconsC:hover {
   height: 45px;
   width: 40px;
   z-index: 200;

@@ -16,7 +16,6 @@ const List = (props) => {
   const [completed, setCompleted] = useState([]);
 
   useEffect(() => {
-    // console.log(completed);
     props.getarr(completed);
   }, [completed]);
 
@@ -25,6 +24,8 @@ const List = (props) => {
       const newCompleted = [...prevList, item.content];
       return newCompleted;
     });
+
+    deleteItem(item.id);
   };
 
   useEffect(() => {
@@ -104,7 +105,7 @@ const List = (props) => {
               onMouseLeave={() => setHover(null)}
             >
               <div className="contextt">{item.content}</div>
-              <div className="icons" onClick={() => handelComplete(item)}>
+              <div className="iconsC" onClick={() => handelComplete(item)}>
                 <Complete state={hover === item.id} />
               </div>
 
