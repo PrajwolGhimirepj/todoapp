@@ -2,16 +2,13 @@ import react from "react";
 import "./Nav.css";
 import Card from "./NavCard/Card";
 
-const Nav = () => {
+const Nav = (props) => {
   return (
     <>
       <div className="nav1">
-        <Card context={"Sunday"} />
-        <Card context={"Monday"} />
-        <Card context={"Thuesday"} />
-        <Card context={"Wednesday"} />
-        <Card context={"Thursday"} />
-        <Card context={"Friday"} />
+        {props.completedarr.map((list, index) => (
+          <Card content={list} />
+        ))}
       </div>
     </>
   );

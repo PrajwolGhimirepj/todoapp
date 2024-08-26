@@ -3,21 +3,29 @@ import "./List.css";
 import Delete from "../Rive/Delete/Delete";
 import { useEffect } from "react";
 import Star from "../Rive/Star/Star";
+import Complete from "../Rive/Complete/Complete";
 
-const List = () => {
+const List = (props) => {
   const [list, setList] = useState([]);
-  const [newItem, setNewItem] = useState();
+  const [newItem, setNewItem] = useState("");
   const [hover, setHover] = useState(null);
   const itemRefs = useRef({});
   const inputeRef = useRef();
   const buttonRef = useRef();
 
-  const [click, setClick] = useState();
+  const [completed, setCompleted] = useState([]);
 
-  // const handelFav = () => {
-  //   setClick(true);
-  //   console.log(click);
-  // };
+  useEffect(() => {
+    // console.log(completed);
+    props.getarr(completed);
+  }, [completed]);
+
+  const handelComplete = (item) => {
+    setCompleted((prevList) => {
+      const newCompleted = [...prevList, item.content];
+      return newCompleted;
+    });
+  };
 
   useEffect(() => {
     inputeRef.current.focus();
@@ -96,11 +104,14 @@ const List = () => {
               onMouseLeave={() => setHover(null)}
             >
               <div className="contextt">{item.content}</div>
+              <div className="icons" onClick={() => handelComplete(item)}>
+                <Complete state={hover === item.id} />
+              </div>
 
-              <div className="delete" onClick={() => deleteItem(item.id)}>
+              <div className="icons" onClick={() => deleteItem(item.id)}>
                 <Delete state={hover === item.id} />
               </div>
-              <div className="delete">
+              <div className="icons">
                 <Star state={hover === item.id} />
               </div>
             </div>

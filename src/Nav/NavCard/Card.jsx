@@ -4,9 +4,7 @@ import "./Card.css";
 const Card = (props) => {
   return (
     <>
-      <a href="" className="card font ">
-        <div>{props.context}</div>
-      </a>
+      <div className="card font">{props.content}</div>
     </>
   );
 };

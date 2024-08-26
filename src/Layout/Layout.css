@@ -11,13 +11,13 @@
   overflow: hidden;
 }
 .nav {
-  width: 30%;
+  width: 25%;
   height: 100vh;
   background-color: #2e236c;
 }
 
 .main {
-  width: 40%;
+  width: 50%;
   height: 100vh;
   display: flex;
   align-items: end;
@@ -33,7 +33,7 @@
 }
 
 .info {
-  width: 30%;
+  width: 25%;
   height: auto;
   display: flex;
 

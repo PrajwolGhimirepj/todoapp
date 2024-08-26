@@ -3,7 +3,10 @@ import "./Help.css";
 import Cardd from "../HelpCards/Cradd";
 
 const Help = () => {
-  const arr = ["To Delete A Task", "To add New Task", "Mark Task Compeleted"];
+  const arr = [
+    { context: "To delete Task", scr: "Del.svg" },
+    { context: "To add new Task", scr: "Star.svg" },
+  ];
   const itemRefs = useRef({});
 
   const handleHover = () => {
@@ -44,7 +47,7 @@ const Help = () => {
             key={id}
             ref={(el) => (itemRefs.current[id] = el)}
           >
-            <Cardd src={"Del.svg"} context={item} />
+            <Cardd src={item.src} context={item.context} />
           </div>
         ))}
         <div className="bottom  font">Help</div>

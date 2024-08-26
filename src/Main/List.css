@@ -179,7 +179,7 @@ button:hover {
   align-items: center;
 }
 
-.delete {
+.icons {
   height: 40px;
   width: 40px;
   z-index: 200;
@@ -187,7 +187,7 @@ button:hover {
 
   transform-origin: center;
 }
-.delete:hover {
+.icons:hover {
   height: 45px;
   width: 40px;
   z-index: 200;
