@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Layout.css";
 import List from "../Main/Lists";
-import Nav from "../Nav/Nav";
+
 import Help from "../Info/Help/Help";
-import Info from "../Info/TopInfo/info";
+
+import Complete from "../Completed/Complete";
 
 const Layout = () => {
   const [arr, setArr] = useState([]);
@@ -18,15 +19,14 @@ const Layout = () => {
     <>
       <div className="layout">
         <div className="nav">
-          <Nav completedarr={arr} />
+          <Complete completedarr={arr} />
         </div>
-
         <div className="main">
           <List getarr={getarr} />
-          {/* <Nav completedarr={arr} /> */}
+          {/* <Complete completedarr={arr} /> */}
         </div>
         <div className="info">
-          <Info />
+          {/* <Info /> */}
           <Help />
         </div>
       </div>

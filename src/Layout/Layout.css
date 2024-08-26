@@ -11,35 +11,27 @@
   overflow: hidden;
 }
 .nav {
-  width: 25%;
+  width: 30%;
   height: 100vh;
-  background-color: #2e236c;
+  /* background-color: rgb(23, 30, 86);
+  border-top-right-radius: 40px; */
 }
 
 .main {
-  width: 50%;
+  width: 40%;
   height: 100vh;
   display: flex;
   align-items: end;
-  /* overflow-y: scroll;
-  flex-direction: column;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-snap-type: y mandatory;  */
-}
-
-.main > * {
-  scroll-snap-align: start; /* Snap each child to the start */
 }
 
 .info {
-  width: 25%;
+  width: 30%;
   height: auto;
   display: flex;
-
   align-items: end;
   padding: 20px;
   position: relative;
+  /* background-color: bisque; */
 }
 
 @media (max-width: 1080px) {

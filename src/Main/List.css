@@ -112,9 +112,7 @@ button:hover {
 }
 
 .huh {
-  -webkit-user-drag: element;
   padding: 20px;
-  align-items: center;
   border-radius: 0.4rem;
   height: 11%;
   width: 100%;
@@ -131,8 +129,9 @@ button:hover {
 }
 .huh:hover {
   background-color: #5c52c65a;
+  /* background-color: #b1c6525a; */
   height: 12%;
-  width: 98%;
+  width: 90%;
 }
 
 @keyframes up {
@@ -205,7 +204,7 @@ button:hover {
 }
 
 .iconsC:hover {
-  height: 45px;
+  height: 43px;
   width: 40px;
   z-index: 200;
   transition-duration: 0.1s;

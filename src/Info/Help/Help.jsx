@@ -4,8 +4,9 @@ import Cardd from "../HelpCards/Cradd";
 
 const Help = () => {
   const arr = [
-    { context: "To delete Task", scr: "Del.svg" },
-    { context: "To add new Task", scr: "Star.svg" },
+    { context: "To delete Task", src: "Del.svg" },
+    { context: "To add new Task", src: "vite.svg" },
+    { context: "Add task to completed ", src: "Star.svg" },
   ];
   const itemRefs = useRef({});
 
