@@ -22,7 +22,7 @@ const Layout = () => {
           <Help />
         </div>
         <div className="main">
-          <List getarr={getarr} />
+          <List getarr={getarr} />/
         </div>
         <div className="info">
           <Complete completedarr={arr} />
