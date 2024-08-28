@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+.infoconteiner {
+  height: 100%;
+  width: 100%;
+  background-color: #17153b;
+  display: flex;
+  align-items: end;
+  border-top-right-radius: 60px;
+  padding: 2rem;
+}
+
 .helpcontainer {
   height: 10%;
   background-color: rgb(23, 30, 86);

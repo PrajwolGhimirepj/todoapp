@@ -19,15 +19,13 @@ const Layout = () => {
     <>
       <div className="layout">
         <div className="nav">
-          <Complete completedarr={arr} />
+          <Help />
         </div>
         <div className="main">
           <List getarr={getarr} />
-          {/* <Complete completedarr={arr} /> */}
         </div>
         <div className="info">
-          {/* <Info /> */}
-          <Help />
+          <Complete completedarr={arr} />
         </div>
       </div>
     </>

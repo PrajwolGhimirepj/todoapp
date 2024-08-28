@@ -37,21 +37,23 @@ const Help = () => {
 
   return (
     <>
-      <div
-        className="helpcontainer "
-        onMouseEnter={handleHover}
-        onMouseLeave={hoverOff}
-      >
-        {arr.map((item, id) => (
-          <div
-            className="animatecard "
-            key={id}
-            ref={(el) => (itemRefs.current[id] = el)}
-          >
-            <Cardd src={item.src} context={item.context} />
-          </div>
-        ))}
-        <div className="bottom  font">Help</div>
+      <div className="infoconteiner">
+        <div
+          className="helpcontainer "
+          onMouseEnter={handleHover}
+          onMouseLeave={hoverOff}
+        >
+          {arr.map((item, id) => (
+            <div
+              className="animatecard "
+              key={id}
+              ref={(el) => (itemRefs.current[id] = el)}
+            >
+              <Cardd src={item.src} context={item.context} />
+            </div>
+          ))}
+          <div className="bottom  font">Help</div>
+        </div>
       </div>
     </>
   );
