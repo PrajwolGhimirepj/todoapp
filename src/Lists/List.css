@@ -31,7 +31,12 @@
   height: 70%;
   padding-right: 10px;
   gap: 10px;
-  background-color: ;
+}
+
+.input img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 input {
@@ -42,10 +47,10 @@ input {
   background-color: transparent;
   outline: none;
   text-shadow: none;
-  background-color: #17153b;
   border-radius: 0.4rem;
-
   box-shadow: 5px 10px 10px #17153b96;
+  background-color: #17153b;
+  text-transform: capitalize;
 }
 
 button {
@@ -55,9 +60,9 @@ button {
   background-color: transparent;
   outline: none;
   text-shadow: none;
-  background-color: #17153b;
   border-radius: 0.4rem;
   box-shadow: 5px 10px 10px #17153b96;
+  background-color: #17153b;
 }
 button:hover {
   background-color: #17153b88;
@@ -96,7 +101,7 @@ button:hover {
   flex-direction: column;
   border-radius: 8px;
   margin: 20px;
-  padding: 20px;
+  padding: 23px;
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -131,7 +136,7 @@ button:hover {
   background-color: #5c52c65a;
   /* background-color: #b1c6525a; */
   height: 12%;
-  width: 90%;
+  width: 95%;
 }
 
 @keyframes up {

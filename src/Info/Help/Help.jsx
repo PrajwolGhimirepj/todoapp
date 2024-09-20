@@ -38,7 +38,6 @@ const Help = () => {
   return (
     <>
       <div className="infoconteiner">
-        <div className="inputcontainer"></div>
         <div className="helpCon">
           <div
             className="helpcontainer "

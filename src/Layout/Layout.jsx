@@ -1,34 +1,39 @@
 import React, { useEffect, useState } from "react";
 import "./Layout.css";
-import List from "../Main/Lists";
-
-import Help from "../Info/Help/Help";
-
-import Complete from "../Completed/Complete";
+import List from "../Lists/Lists";
+import Complete from "../Rive/Complete/Complete";
+import Completed from "../Completed/Complete";
+import Profile from "../Profile/Profile";
 
 const Layout = () => {
   const [arr, setArr] = useState([]);
 
-  useEffect(() => {
-    console.log(" this console log is from the layout component ", arr);
-  });
   const getarr = (list) => {
     setArr(list);
   };
+  useEffect(() => {
+    console.log("List of completed Form Layout ", arr);
+  });
   return (
     <>
-      <div className="layout">
-        <div className="nav">
-          <Help />
-        </div>
-        <div className="main">
-          <List getarr={getarr} />/
-        </div>
-        <div className="info">
-          <Complete completedarr={arr} />
+      <div className="container">
+        <nav></nav>
+        <div className="listandall">
+          <div className="profile">
+            <Profile />
+          </div>
+          <div className="listandcompleted">
+            <div className="listscon">
+              <List getarr={getarr} />
+            </div>
+            <div className="completed">
+              <Completed comp={arr} />
+            </div>
+          </div>
         </div>
       </div>
     </>
   );
 };
+
 export default Layout;

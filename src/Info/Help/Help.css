@@ -5,13 +5,14 @@
 .helpCon {
   height: 100%;
   width: 100%;
-  background-color: #17153b;
+  background-color: #18163c;
   display: flex;
   justify-content: end;
   flex-direction: column;
   border-radius: 8px;
   margin: 20px;
   padding: 20px;
+  border-top-right-radius: 100px;
 }
 .infoconteiner {
   height: 100%;

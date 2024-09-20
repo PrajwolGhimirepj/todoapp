@@ -1,0 +1,39 @@
+.profile_c {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.prfilepiccon {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.img {
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  border-radius: 100%;
+}
+h3 {
+  margin-left: 10px;
+}
+
+.name {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  transform: translateY(30px);
+}
