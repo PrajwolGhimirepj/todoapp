@@ -29,7 +29,7 @@ const Complete = ({ state }) => {
   }, [rive, hoverInput, state]);
 
   return (
-    <div className="rivecomponentStar">
+    <div className="rivecon">
       <RiveComponent />
     </div>
   );

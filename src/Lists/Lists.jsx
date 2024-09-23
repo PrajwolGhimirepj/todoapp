@@ -105,16 +105,20 @@ const List = (props) => {
               onMouseEnter={() => setHover(item.id)}
               onMouseLeave={() => setHover(null)}
             >
-              <div className="contextt">{item.content}</div>
-              <div className="iconsC" onClick={() => handelComplete(item)}>
-                <Complete state={hover === item.id} />
-              </div>
-
-              <div className="icons" onClick={() => deleteItem(item.id)}>
-                <Delete state={hover === item.id} />
+              <div className="contexts">
+                <div className="fades"></div>
+                <div className="contextt">{item.content}</div>
               </div>
               <div className="icons">
-                <Star state={hover === item.id} />
+                <div className="icon" onClick={() => handelComplete(item)}>
+                  <Complete state={hover === item.id} />
+                </div>
+                <div className="icon" onClick={() => deleteItem(item.id)}>
+                  <Delete state={hover === item.id} />
+                </div>
+                <div className="icon">
+                  <Star state={hover === item.id} />
+                </div>
               </div>
             </div>
           ))}

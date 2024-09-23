@@ -6,6 +6,7 @@ import {
   Fit,
   Alignment,
 } from "@rive-app/react-canvas";
+import "../Rive.css";
 
 const Star = ({ state }) => {
   const stateMachines = "StarState";
@@ -29,7 +30,7 @@ const Star = ({ state }) => {
   }, [rive, hoverInput, state]);
 
   return (
-    <div className="rivecomponentStar">
+    <div className="rivecon">
       <RiveComponent />
     </div>
   );

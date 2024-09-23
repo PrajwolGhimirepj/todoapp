@@ -9,10 +9,10 @@ const Completed = (props) => {
   return (
     <>
       <div className="appcontainer font">
-        <div className="tital font ">
-          <h1>COMPLETED</h1>
+        <div className="tital">
+          <h2 className="tcon">COMPLETED</h2>
         </div>
-        <div className="lists">
+        <div className="lists-c">
           {props.comp.map((list, index) => (
             <Card content={list} />
           ))}

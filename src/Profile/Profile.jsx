@@ -1,5 +1,6 @@
 import React from "react";
 import "./Profile.css";
+import ProgressBar from "../Rive/ProgressBar/ProgressBar";
 
 const Profile = () => {
   return (
@@ -14,7 +15,14 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="graphs"></div>
+      <div className="container-g">
+        <div className="graph">
+          <ProgressBar value={22} />
+        </div>
+        <div className="graph">
+          <ProgressBar value={90} />
+        </div>
+      </div>
     </>
   );
 };

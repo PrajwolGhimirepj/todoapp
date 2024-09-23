@@ -1,6 +1,6 @@
 .profile_c {
   height: 100%;
-  width: 50%;
+  width: 40%;
   display: flex;
   align-items: center;
 }
@@ -36,4 +36,19 @@ h3 {
   align-items: center;
   justify-content: start;
   transform: translateY(30px);
+}
+
+.container-g {
+  height: 100%;
+  width: 400px;
+  display: flex;
+  position: absolute;
+  right: 0px;
+}
+
+.graph {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
 }

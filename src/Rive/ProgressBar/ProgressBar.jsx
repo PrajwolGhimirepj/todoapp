@@ -6,11 +6,12 @@ import {
   Fit,
   Alignment,
 } from "@rive-app/react-canvas";
+import "../Rive.css";
 
-const Delete = ({ state }) => {
+const ProgressBar = ({ value }) => {
   const stateMachines = "State";
   const { rive, RiveComponent } = useRive({
-    src: "sc.riv",
+    src: "progress_bar.riv",
     stateMachines: stateMachines,
     autoplay: true,
     layout: new Layout({
@@ -19,19 +20,19 @@ const Delete = ({ state }) => {
     }),
   });
 
-  const hoverInput = useStateMachineInput(rive, stateMachines, "hover");
+  const hoverInput = useStateMachineInput(rive, stateMachines, "Value");
 
   useEffect(() => {
     if (rive && hoverInput) {
-      hoverInput.value = state;
+      hoverInput.value = value;
     }
-  }, [rive, hoverInput, state]);
+  }, [rive, hoverInput]);
 
   return (
-    <div className="rivecon">
+    <div className="g">
       <RiveComponent />
     </div>
   );
 };
 
-export default Delete;
+export default ProgressBar;
