@@ -4,6 +4,7 @@ import List from "../Lists/Lists";
 import Complete from "../Rive/Complete/Complete";
 import Completed from "../Completed/Complete";
 import Profile from "../Profile/Profile";
+import Stats from "../Stats/Stats";
 
 const Layout = () => {
   const [arr, setArr] = useState([]);
@@ -17,7 +18,7 @@ const Layout = () => {
   return (
     <>
       <div className="container">
-        <nav></nav>
+        <nav className="navigation">dfsdasdasd</nav>
         <div className="listandall">
           <div className="profile">
             <Profile />
@@ -28,6 +29,9 @@ const Layout = () => {
             </div>
             <div className="completed">
               <Completed comp={arr} />
+            </div>
+            <div className="stats">
+              <Stats />
             </div>
           </div>
         </div>

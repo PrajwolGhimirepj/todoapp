@@ -10,7 +10,7 @@ const Completed = (props) => {
     <>
       <div className="appcontainer font">
         <div className="tital">
-          <h2 className="tcon">COMPLETED</h2>
+          <h2 className="tcon">Completed</h2>
         </div>
         <div className="lists-c">
           {props.comp.map((list, index) => (

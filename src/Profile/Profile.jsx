@@ -16,12 +16,8 @@ const Profile = () => {
         </div>
       </div>
       <div className="container-g">
-        <div className="graph">
-          <ProgressBar value={22} />
-        </div>
-        <div className="graph">
-          <ProgressBar value={90} />
-        </div>
+        <div className="graph">{/* <ProgressBar value={92} /> */}</div>
+        <div className="graph">{/* <ProgressBar value={50} /> */}</div>
       </div>
     </>
   );
