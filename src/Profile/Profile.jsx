@@ -11,7 +11,7 @@ const Profile = () => {
             <img src="straw.jpg" alt="" />
           </div>
           <div className="name font">
-            <h3>Prajwol Ghimire</h3>
+            <h3>Name placeholder</h3>
           </div>
         </div>
       </div>

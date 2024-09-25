@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "./Layout.css";
 import List from "../Lists/Lists";
-import Complete from "../Rive/Complete/Complete";
 import Completed from "../Completed/Complete";
 import Profile from "../Profile/Profile";
 import Stats from "../Stats/Stats";
 
 const Layout = () => {
   const [arr, setArr] = useState([]);
+  const [del, setdell] = useState(null);
 
+  const getdell = (delfunc) => {
+    setdell(delfunc);
+  };
+
+  useEffect(() => {});
   const getarr = (list) => {
     setArr(list);
   };
   useEffect(() => {
-    console.log("List of completed Form Layout ", arr);
+    console.log(" Function in Layout component( del)", del);
   });
   return (
     <>
@@ -25,10 +30,10 @@ const Layout = () => {
           </div>
           <div className="listandcompleted">
             <div className="listscon">
-              <List getarr={getarr} />
+              <List getarr={getarr} getdell={getdell} />
             </div>
             <div className="completed">
-              <Completed comp={arr} />
+              <Completed comp={arr} deletefun={del} />
             </div>
             <div className="stats">
               <Stats />

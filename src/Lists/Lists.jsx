@@ -17,6 +17,7 @@ const List = (props) => {
 
   useEffect(() => {
     props.getarr(completed);
+    props.getdell(() => handelcompletedeleted);
   }, [completed]);
 
   const handelComplete = (item) => {
@@ -28,6 +29,11 @@ const List = (props) => {
     deleteItem(item.id);
   };
 
+  //Clear completed List
+
+  const handelcompletedeleted = () => {
+    setCompleted([]);
+  };
   useEffect(() => {
     inputeRef.current.focus();
   }, []);
