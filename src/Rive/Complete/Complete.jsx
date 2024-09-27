@@ -10,7 +10,7 @@ import {
 const Complete = ({ state }) => {
   const stateMachines = "StateClick";
   const { rive, RiveComponent } = useRive({
-    src: "cum.riv",
+    src: "../riv/Completed.riv",
     stateMachines: stateMachines,
     autoplay: true,
     layout: new Layout({

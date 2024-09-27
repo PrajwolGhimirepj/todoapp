@@ -10,7 +10,7 @@ import {
 const Delete = ({ state }) => {
   const stateMachines = "State";
   const { rive, RiveComponent } = useRive({
-    src: "sc.riv",
+    src: "../riv/Delete.riv",
     stateMachines: stateMachines,
     autoplay: true,
     layout: new Layout({

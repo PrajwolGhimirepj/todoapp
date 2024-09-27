@@ -11,7 +11,7 @@ import "../Rive.css";
 const Star = ({ state }) => {
   const stateMachines = "StarState";
   const { rive, RiveComponent } = useRive({
-    src: "st.riv",
+    src: "../riv/Star.riv",
     stateMachines: stateMachines,
     autoplay: true,
     layout: new Layout({

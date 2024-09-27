@@ -49,5 +49,6 @@ h3 {
 
 .graph {
   height: 100%;
-  width: 50%;
+  width: 100%;
+  transform: translatey(-1px);
 }

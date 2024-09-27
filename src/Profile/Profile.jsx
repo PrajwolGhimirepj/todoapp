@@ -1,14 +1,15 @@
 import React from "react";
 import "./Profile.css";
 import ProgressBar from "../Rive/ProgressBar/ProgressBar";
+import Cat from "../Rive/Cat/Cat";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <>
       <div className="profile_c">
         <div className="prfilepiccon">
           <div className="img">
-            <img src="straw.jpg" alt="" />
+            <img src="Default.jpg" alt="" />
           </div>
           <div className="name font">
             <h3>Name placeholder</h3>
@@ -16,8 +17,9 @@ const Profile = () => {
         </div>
       </div>
       <div className="container-g">
-        <div className="graph">{/* <ProgressBar value={92} /> */}</div>
-        <div className="graph">{/* <ProgressBar value={50} /> */}</div>
+        <div className="graph">
+          <Cat state={props.state} />
+        </div>
       </div>
     </>
   );

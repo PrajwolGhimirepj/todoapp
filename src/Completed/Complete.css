@@ -30,11 +30,11 @@
   background-color: #17153b;
   display: flex;
   align-items: center;
-  justify-content: start;
   flex-direction: column;
   border-radius: 8px;
   padding: 23px;
   margin: 20px;
+  gap: 10px;
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -71,4 +71,31 @@
 }
 #comp {
   margin-left: 20px;
+}
+
+.card-c {
+  height: 12.6%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.popdown {
+  animation: popdown 0.5s forwards ease-in-out;
+}
+
+@keyframes popdown {
+  0% {
+    scale: 100%;
+    opacity: 100%;
+  }
+  50% {
+    scale: 110%;
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 0%;
+    scale: 0%;
+  }
 }
