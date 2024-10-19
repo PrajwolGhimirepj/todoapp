@@ -6,11 +6,10 @@
 
 .font {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: rgb(255, 255, 255);
-  font-size: 1.2rem;
+
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+
   font-style: initial;
 }
 
@@ -56,7 +55,10 @@ input {
   border-radius: 0.4rem;
   /* box-shadow: 5px 10px 10px #17153b96; */
   background-color: #17153b;
-  text-transform: capitalize;
+  color: azure;
+}
+.in {
+  height: 100%;
 }
 
 button {
@@ -69,6 +71,7 @@ button {
   border-radius: 0.4rem;
   /* box-shadow: 5px 10px 10px #17153b96; */
   background-color: #17153b;
+  color: aliceblue;
 }
 button:hover {
   background-color: #17153b88;
@@ -196,6 +199,7 @@ button:hover {
   align-items: center;
   padding: 20px;
   overflow: hidden;
+  color: azure;
 }
 .fades {
   height: 100%;

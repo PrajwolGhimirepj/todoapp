@@ -18,13 +18,13 @@
   width: 80px;
   border-radius: 100%;
 }
-
-img {
+.img img {
   height: 100%;
   width: 100%;
-  object-fit: fill;
+  object-fit: contain;
   border-radius: 100%;
 }
+
 h3 {
   margin-left: 10px;
 }
@@ -37,6 +37,7 @@ h3 {
   align-items: start;
   justify-content: center;
   transform: translateY(30px);
+  color: aliceblue;
 }
 
 .container-g {

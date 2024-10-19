@@ -52,7 +52,7 @@ const Completed = (props) => {
           onMouseEnter={handleHover}
           onMouseLeave={handleHoverOff}
         >
-          <h1 id="comp">Completed</h1>
+          <h1 className="font c ">Completed</h1>
           <div className="icons-c">
             <div className="icon-c " onClick={handleClick}>
               <Delete state={hover} />

@@ -86,7 +86,7 @@ const List = (props) => {
         <div className="inputcontainer">
           <div className="input">
             <input
-              className="font"
+              className=" in font"
               ref={inputeRef}
               placeholder="Enter Lists here !! "
               type="text"
@@ -95,7 +95,7 @@ const List = (props) => {
               onKeyDown={handleKeyDown}
             />
 
-            <button ref={buttonRef} className="font" onClick={addItem}>
+            <button ref={buttonRef} className="font " onClick={addItem}>
               Add
             </button>
           </div>

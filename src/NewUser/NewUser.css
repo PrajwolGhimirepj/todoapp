@@ -1,0 +1,123 @@
+.newuser-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.newuser-box {
+  height: 80%;
+  width: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.247);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: azure;
+}
+
+.image-n {
+  height: 100%;
+  width: 50%;
+}
+
+.image-n img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.form-n {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2%;
+  gap: 10px;
+}
+
+.input-n {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  background-color: aliceblue;
+  border: 2px black solid;
+  color: black;
+  font-size: 15px;
+}
+
+.tital-n-t {
+  height: auto;
+  width: 100%;
+  font-weight: 700;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tital-n {
+  height: auto;
+  width: 100%;
+  font-weight: 700;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.527);
+  font-size: 15px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.tital-n-s {
+  width: 100%;
+  font-weight: 700;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+  font-size: 100%;
+  display: flex;
+  align-items: center;
+  padding: 3%;
+  justify-content: center;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(13, 205, 182);
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.tital-n-s:hover {
+  background-color: rgb(79, 223, 206);
+}
+.error-n {
+  height: auto;
+  width: 100%;
+  color: rgba(255, 0, 0, 0.728);
+  font-size: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.input-c {
+  height: auto;
+  width: 100%;
+}
+.space {
+  height: 10%;
+  width: 100%;
+}

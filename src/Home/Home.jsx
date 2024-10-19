@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./Layout.css";
+import "./Home.css";
 import List from "../Lists/Lists";
 import Completed from "../Completed/Complete";
 import Profile from "../Profile/Profile";
 import Stats from "../Stats/Stats";
-import Cat from "../Rive/Cat/Cat";
 
-const Layout = () => {
+const Home = (props) => {
   const [arr, setArr] = useState([]);
   const [del, setdell] = useState(null);
 
@@ -32,15 +31,15 @@ const Layout = () => {
   });
   return (
     <>
-      <div className="container">
-        <nav className="navigation"></nav>
+      <div className="container-h">
+        <nav className="navigation-t"></nav>
         <div className="listandall">
           <div
             className="profile"
             onMouseEnter={handelState}
             onMouseLeave={handelStateoff}
           >
-            <Profile state={state} />
+            <Profile state={state} userEmail={props.userEmail} />
           </div>
           <div className="listandcompleted">
             <div className="listscon">
@@ -59,4 +58,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Home;

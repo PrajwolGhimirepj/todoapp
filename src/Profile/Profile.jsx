@@ -4,6 +4,7 @@ import ProgressBar from "../Rive/ProgressBar/ProgressBar";
 import Cat from "../Rive/Cat/Cat";
 
 const Profile = (props) => {
+  console.log(props);
   return (
     <>
       <div className="profile_c">
@@ -12,14 +13,12 @@ const Profile = (props) => {
             <img src="Default.jpg" alt="" />
           </div>
           <div className="name font">
-            <h3>Name placeholder</h3>
+            <h3>{props.userEmail}</h3>
           </div>
         </div>
       </div>
       <div className="container-g">
-        <div className="graph">
-          <Cat state={props.state} />
-        </div>
+        <div className="graph">{/* <Cat state={props.state} /> */}</div>
       </div>
     </>
   );

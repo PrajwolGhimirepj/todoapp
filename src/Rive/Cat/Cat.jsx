@@ -36,13 +36,17 @@ const Cat = ({ state }) => {
       const width = window.innerWidth;
 
       if (Xpo && Ypo) {
-        Xpo.value = (event.clientX / width) * 100;
-        Ypo.value = (event.clientY / height) * 100;
+        // Modified calculations to map (100, 0) to (50, 50)
+        const rawX = (event.clientX / width) * 100;
+        const rawY = (event.clientY / height) * 100;
+
+        // Transform coordinates
+        Xpo.value = 50 + (rawX - 100) * (50 / 100); // Map 100 to 50
+        Ypo.value = 50 + (rawY - 0) * (50 / 100); // Map 0 to 50
       }
     };
 
     window.addEventListener("mousemove", updateMousePosition);
-
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
