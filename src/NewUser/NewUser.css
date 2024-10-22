@@ -10,8 +10,8 @@
 }
 
 .newuser-box {
-  height: 80%;
-  width: 55%;
+  height: 100%;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.247);
   border-radius: 10px;
   overflow: hidden;
-  background-color: azure;
+  background-color: rgb(255, 255, 255);
 }
 
 .image-n {

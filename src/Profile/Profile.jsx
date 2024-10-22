@@ -2,6 +2,7 @@ import React from "react";
 import "./Profile.css";
 import ProgressBar from "../Rive/ProgressBar/ProgressBar";
 import Cat from "../Rive/Cat/Cat";
+import { Link } from "react-router-dom";
 
 const Profile = (props) => {
   console.log(props);
@@ -18,7 +19,26 @@ const Profile = (props) => {
         </div>
       </div>
       <div className="container-g">
-        <div className="graph">{/* <Cat state={props.state} /> */}</div>
+        <div className="flex-c font">
+          <Link to="/">
+            <h2>Home</h2>
+          </Link>
+          <Link to="Login">
+            <h2>Login</h2>
+          </Link>
+        </div>
+        <p></p>
+        <div className="felx">
+          <h2>Artwork</h2>
+          <a
+            id="a"
+            href="https://www.instagram.com/gadoodlez_/ "
+            target="_blank"
+            rel="noreferrer"
+          >
+            @gadoodlez
+          </a>
+        </div>
       </div>
     </>
   );

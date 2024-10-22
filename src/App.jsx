@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Login from "./Login/Login";
 import NewUser from "./NewUser/NewUser";
 import Home from "./Home/Home";
+import Profile from "./Profile/Profile";
 import { auth } from "./firebaseconfig/firebaseconfig";
 
 const App = () => {
@@ -22,37 +23,20 @@ const App = () => {
   return (
     <Router>
       <div className="wholeapp">
-        <div className="nav font-t">
-          <div className="flex-c">
-            <div className="felx font-t">
-              <Link to="/">
-                <h2>Home</h2>
-              </Link>
-              <Link to="Login">
-                <h2>Login</h2>
-              </Link>
+        <div className="app-container">
+          <div className="nav-profile">
+            <div className="profile">
+              {" "}
+              <Profile />
             </div>
           </div>
-          <p></p>
-          <div className="felx">
-            <h2>Artwork</h2>
-            <a
-              id="a"
-              href="https://www.instagram.com/gadoodlez_/ "
-              target="_blank"
-              rel="noreferrer"
-            >
-              @gadoodlez
-            </a>
+          <div className="app-container-a">
+            <Routes>
+              <Route path="/" element={<Home userEmail={userEmail} />} />
+              <Route path="Login/*" element={<Login />} />
+              <Route path="Newuser" element={<NewUser />} />
+            </Routes>
           </div>
-        </div>
-
-        <div className="app-container-a">
-          <Routes>
-            <Route path="/" element={<Home userEmail={userEmail} />} />
-            <Route path="Login/*" element={<Login />} />
-            <Route path="Newuser" element={<NewUser />} />
-          </Routes>
         </div>
       </div>
     </Router>

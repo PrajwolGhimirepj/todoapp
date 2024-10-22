@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./List.css";
 import Delete from "../Rive/Delete/Delete";
-import { useEffect } from "react";
 import Star from "../Rive/Star/Star";
 import Complete from "../Rive/Complete/Complete";
+import { collection, addDoc, getDocs, deleteDoc } from "firebase/firestore";
+import { db } from "../firebaseconfig/firebaseconfig";
 
 const List = (props) => {
   const [list, setList] = useState([]);
@@ -12,7 +13,6 @@ const List = (props) => {
   const itemRefs = useRef({});
   const inputeRef = useRef();
   const buttonRef = useRef();
-
   const [completed, setCompleted] = useState([]);
 
   useEffect(() => {
@@ -20,23 +20,34 @@ const List = (props) => {
     props.getdell(() => handelcompletedeleted);
   }, [completed]);
 
+  useEffect(() => {
+    inputeRef.current.focus();
+  }, []);
+
+  // Fetch list from Firestore on component mount
+  useEffect(() => {
+    const fetchList = async () => {
+      const querySnapshot = await getDocs(collection(db, "List"));
+      const fetchedList = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        content: doc.data().item,
+      }));
+      setList(fetchedList);
+    };
+    fetchList();
+  }, []);
+
   const handelComplete = (item) => {
     setCompleted((prevList) => {
       const newCompleted = [...prevList, item.content];
       return newCompleted;
     });
-
     deleteItem(item.id);
   };
-
-  //Clear completed List
 
   const handelcompletedeleted = () => {
     setCompleted([]);
   };
-  useEffect(() => {
-    inputeRef.current.focus();
-  }, []);
 
   const handleInput = (event) => {
     setNewItem(event.target.value);
@@ -50,31 +61,40 @@ const List = (props) => {
 
   const handleClick = (index) => {
     if (itemRefs.current[index]) {
+      // Add any additional click functionality if needed
     }
   };
 
-  // Adding Items
-  const addItem = () => {
+  // Adding Items to Firestore
+  const addItem = async () => {
     buttonRef.current.classList.add("click");
     setTimeout(() => {
       buttonRef.current.classList.remove("click");
     }, 900);
+
     if (newItem.trim() !== "") {
-      setList((prevList) => [
-        ...prevList,
-        { id: Date.now(), content: newItem },
-      ]);
+      // Add to Firestore
+      const docRef = await addDoc(collection(db, "List"), {
+        item: newItem,
+      });
+
+      // Update local state with the new item
+      setList((prevList) => [...prevList, { id: docRef.id, content: newItem }]);
       setNewItem("");
     }
   };
 
-  // Deleteing Items
-  const deleteItem = (id) => {
+  // Deleting Items from Firestore
+  const deleteItem = async (id) => {
     const index = list.findIndex((item) => item.id === id);
     if (index !== -1 && itemRefs.current[id]) {
       itemRefs.current[id].classList.add("animate");
 
-      setTimeout(() => {
+      setTimeout(async () => {
+        // Delete from Firestore
+        await deleteDoc(doc(db, "List", id));
+
+        // Update local state after deletion
         setList((prevList) => prevList.filter((item) => item.id !== id));
       }, 1000);
     }
@@ -94,8 +114,7 @@ const List = (props) => {
               onChange={handleInput}
               onKeyDown={handleKeyDown}
             />
-
-            <button ref={buttonRef} className="font " onClick={addItem}>
+            <button ref={buttonRef} className="font" onClick={addItem}>
               Add
             </button>
           </div>

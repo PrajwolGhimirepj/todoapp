@@ -9,8 +9,6 @@ const Home = (props) => {
   const [arr, setArr] = useState([]);
   const [del, setdell] = useState(null);
 
-  const [state, setstate] = useState(false);
-
   const handelState = () => {
     setstate(true);
   };
@@ -32,24 +30,13 @@ const Home = (props) => {
   return (
     <>
       <div className="container-h">
-        <nav className="navigation-t"></nav>
         <div className="listandall">
-          <div
-            className="profile"
-            onMouseEnter={handelState}
-            onMouseLeave={handelStateoff}
-          >
-            <Profile state={state} userEmail={props.userEmail} />
-          </div>
           <div className="listandcompleted">
             <div className="listscon">
               <List getarr={getarr} getdell={getdell} />
             </div>
             <div className="completed">
               <Completed comp={arr} deletefun={del} />
-            </div>
-            <div className="stats">
-              <Stats />
             </div>
           </div>
         </div>
