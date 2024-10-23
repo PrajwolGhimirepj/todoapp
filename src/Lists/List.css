@@ -134,6 +134,7 @@ button:hover {
   transition-duration: 0.5s;
   animation-name: up;
   animation-duration: 0.5s;
+
   animation-timing-function: cubic-bezier(0.03, 0.84, 0.18, 1.06);
   transition-timing-function: cubic-bezier(0.29, 1.09, 0.67, 1.24);
 }
@@ -148,9 +149,11 @@ button:hover {
 
 @keyframes up {
   from {
+    opacity: 0%;
     transform: translateY(100vh);
   }
   to {
+    opacity: 100%;
     transform: translateY(0%);
   }
 }

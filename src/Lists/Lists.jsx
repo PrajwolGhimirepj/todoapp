@@ -3,7 +3,7 @@ import "./List.css";
 import Delete from "../Rive/Delete/Delete";
 import Star from "../Rive/Star/Star";
 import Complete from "../Rive/Complete/Complete";
-import { collection, addDoc, getDocs, deleteDoc } from "firebase/firestore";
+import { collection, doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../firebaseconfig/firebaseconfig";
 
 const List = (props) => {
@@ -27,12 +27,17 @@ const List = (props) => {
   // Fetch list from Firestore on component mount
   useEffect(() => {
     const fetchList = async () => {
-      const querySnapshot = await getDocs(collection(db, "List"));
-      const fetchedList = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        content: doc.data().item,
-      }));
-      setList(fetchedList);
+      const docRef = doc(db, "List", "ToDOList");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const fetchedList = docSnap.data().ListItems || [];
+        setList(
+          fetchedList.map((item, index) => ({ id: index, content: item }))
+        );
+      } else {
+        console.log("No such document!");
+      }
     };
     fetchList();
   }, []);
@@ -59,12 +64,6 @@ const List = (props) => {
     }
   };
 
-  const handleClick = (index) => {
-    if (itemRefs.current[index]) {
-      // Add any additional click functionality if needed
-    }
-  };
-
   // Adding Items to Firestore
   const addItem = async () => {
     buttonRef.current.classList.add("click");
@@ -73,13 +72,22 @@ const List = (props) => {
     }, 900);
 
     if (newItem.trim() !== "") {
-      // Add to Firestore
-      const docRef = await addDoc(collection(db, "List"), {
-        item: newItem,
+      // Update the ListItems array in Firestore
+      const docRef = doc(db, "List", "ToDOList");
+      const docSnap = await getDoc(docRef);
+      const currentList = docSnap.data().ListItems || [];
+
+      // Add the new item to the list and update Firestore
+      const updatedList = [...currentList, newItem];
+      await updateDoc(docRef, {
+        ListItems: updatedList,
       });
 
       // Update local state with the new item
-      setList((prevList) => [...prevList, { id: docRef.id, content: newItem }]);
+      setList((prevList) => [
+        ...prevList,
+        { id: prevList.length, content: newItem },
+      ]);
       setNewItem("");
     }
   };
@@ -91,8 +99,16 @@ const List = (props) => {
       itemRefs.current[id].classList.add("animate");
 
       setTimeout(async () => {
-        // Delete from Firestore
-        await deleteDoc(doc(db, "List", id));
+        // Delete the item from Firestore
+        const docRef = doc(db, "List", "ToDOList");
+        const docSnap = await getDoc(docRef);
+        const currentList = docSnap.data().ListItems || [];
+
+        // Filter out the deleted item and update Firestore
+        const updatedList = currentList.filter((_, idx) => idx !== index);
+        await updateDoc(docRef, {
+          ListItems: updatedList,
+        });
 
         // Update local state after deletion
         setList((prevList) => prevList.filter((item) => item.id !== id));

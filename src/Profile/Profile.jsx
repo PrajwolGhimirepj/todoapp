@@ -3,9 +3,22 @@ import "./Profile.css";
 import ProgressBar from "../Rive/ProgressBar/ProgressBar";
 import Cat from "../Rive/Cat/Cat";
 import { Link } from "react-router-dom";
+import { auth } from "../firebaseconfig/firebaseconfig";
+import { useState, useEffect } from "react";
 
-const Profile = (props) => {
-  console.log(props);
+const Profile = () => {
+  const [userEmail, setUserEmail] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserEmail(user.email);
+      } else {
+        setUserEmail(null);
+      }
+    });
+    console.log(userEmail);
+  }, []);
   return (
     <>
       <div className="profile_c">
@@ -14,7 +27,7 @@ const Profile = (props) => {
             <img src="Default.jpg" alt="" />
           </div>
           <div className="name font">
-            <h3>{props.userEmail}</h3>
+            <h3>{userEmail} </h3>
           </div>
         </div>
       </div>
@@ -28,7 +41,7 @@ const Profile = (props) => {
           </Link>
         </div>
         <p></p>
-        <div className="felx">
+        {/* <div className="felx">
           <h2>Artwork</h2>
           <a
             id="a"
@@ -38,7 +51,7 @@ const Profile = (props) => {
           >
             @gadoodlez
           </a>
-        </div>
+        </div> */}
       </div>
     </>
   );

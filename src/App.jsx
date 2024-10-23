@@ -5,21 +5,8 @@ import Login from "./Login/Login";
 import NewUser from "./NewUser/NewUser";
 import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
-import { auth } from "./firebaseconfig/firebaseconfig";
 
 const App = () => {
-  const [userEmail, setUserEmail] = useState(null);
-
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUserEmail(user.email);
-      } else {
-        setUserEmail(null);
-      }
-    });
-  }, []);
-
   return (
     <Router>
       <div className="wholeapp">
@@ -32,7 +19,7 @@ const App = () => {
           </div>
           <div className="app-container-a">
             <Routes>
-              <Route path="/" element={<Home userEmail={userEmail} />} />
+              <Route path="/" element={<Home />} />
               <Route path="Login/*" element={<Login />} />
               <Route path="Newuser" element={<NewUser />} />
             </Routes>
