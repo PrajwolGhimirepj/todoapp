@@ -24,7 +24,7 @@ const Profile = () => {
       <div className="profile_c">
         <div className="prfilepiccon">
           <div className="img">
-            <img src="Default.jpg" alt="" />
+            <img src="her.jpg" alt="" />
           </div>
           <div className="name font">
             <h3>{userEmail} </h3>
