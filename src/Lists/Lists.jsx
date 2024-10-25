@@ -137,10 +137,16 @@ const List = (props) => {
                 backgroundColor:
                   item.uid === currentUserUID ? "#3c3490" : "#6053f1b8",
                 alignSelf:
-                  item.uid === currentUserUID ? "flex-start" : "flex-end",
+                  item.uid === currentUserUID ? "flex-end" : "flex-start",
               }}
             >
               <div className="contexts">
+                <div
+                  className="fades"
+                  style={{
+                    opacity: item.uid === currentUserUID ? 1 : 0,
+                  }}
+                ></div>
                 <div
                   className="contextt"
                   style={{
@@ -156,7 +162,7 @@ const List = (props) => {
                   <Complete state={hover === item.id} />
                 </div> */}
                 <div className="icon" onClick={() => deleteItem(item.id)}>
-                  <Delete state={hover === item.id} />
+                  {/* <Delete state={hover === item.id} /> */}
                 </div>
                 {/* <div className="icon">
                   <Star state={hover === item.id} />
@@ -177,7 +183,7 @@ const List = (props) => {
               onKeyDown={handleKeyDown}
             />
             <button ref={buttonRef} className="font" onClick={addItem}>
-              Add
+              send
             </button>
           </div>
         </div>

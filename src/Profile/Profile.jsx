@@ -34,10 +34,13 @@ const Profile = () => {
       <div className="container-g">
         <div className="flex-c font">
           <Link to="/">
-            <h2>Home</h2>
+            <h2 className="l">Home</h2>
+          </Link>
+          <Link to="Newuser">
+            <h2 className="l">Singup</h2>
           </Link>
           <Link to="Login">
-            <h2>Login</h2>
+            <h2 className="l">Login</h2>
           </Link>
         </div>
         <p></p>

@@ -120,6 +120,7 @@ button:hover {
 .fade {
   opacity: 0%;
   transition-duration: 1s;
+  background-color: aqua;
 }
 
 .huh {
@@ -128,11 +129,9 @@ button:hover {
   display: flex;
   align-items: start;
   margin-bottom: 10px;
-  background-color: #6053f1b8;
   transition-duration: 0.3s;
   animation-name: up;
   animation-duration: 0.5s;
-
   animation-timing-function: cubic-bezier(0.03, 0.84, 0.18, 1.06);
   transition-timing-function: cubic-bezier(0.29, 1.09, 0.67, 1.24);
 }
@@ -144,6 +143,9 @@ button:hover {
 /* .huh:hover .fades {
   background: linear-gradient(to right, #6f67c800, red);
 } */
+.huh:hover .icon {
+  opacity: 100%;
+}
 
 @keyframes up {
   from {
@@ -228,6 +230,8 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0%;
+  transition-delay: 0.3s;
 }
 .icon:hover {
   height: 45px;
@@ -255,27 +259,25 @@ button:hover {
 
 @media (max-width: 700px) {
   .lists {
-    height: 95%;
+    height: 100%;
     width: 100%;
-    background-color: #17153b;
     display: flex;
     align-items: center;
     justify-content: start;
     flex-direction: column;
     border-radius: 8px;
-    margin: 20px;
-    padding: 23px;
+    background-color: #17153b00;
+    padding: 3px;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
     transition-duration: 0.4s;
-    box-shadow: 5px 10px 10px #17153b96;
+    box-shadow: 5px 10px 10px #17153b00;
   }
   .inputcontainer {
     display: flex;
     align-items: end;
     justify-content: start;
-    height: 15%;
     width: 100%;
   }
 }
