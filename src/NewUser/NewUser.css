@@ -65,7 +65,9 @@
   font-size: 20px;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+  gap: 10px;
 }
 
 .tital-n {
@@ -120,4 +122,13 @@
 .space {
   height: 10%;
   width: 100%;
+}
+.msg {
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .newuser-box {
+    width: 90%;
+  }
 }

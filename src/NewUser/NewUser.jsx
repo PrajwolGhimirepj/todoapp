@@ -59,7 +59,12 @@ const NewUser = () => {
           <img src="../Images/2.jpg" alt="login" />
         </div>
         <form className="form-n" onSubmit={handleSubmit}>
-          <div className="tital-n-t font">Sign Up</div>
+          <div className="tital-n-t font">
+            Sign Up
+            <p className="msg">
+              Please fill in this form to create an account.
+            </p>
+          </div>
           <div className="input-c">
             <div className="tital-n font">Email</div>
             <input
