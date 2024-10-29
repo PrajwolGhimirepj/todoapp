@@ -32,15 +32,15 @@ const Profile = () => {
         </div>
       </div>
       <div className="container-g">
-        <div className="flex-c font">
+        <div className="flex-c  ">
           <Link to="/">
-            <h2 className="l">Home</h2>
+            <h2 className="l font">Home</h2>
           </Link>
-          <Link to="Newuser">
-            <h2 className="l">Singup</h2>
+          <Link to="Newuser font">
+            <h2 className="l font">Singup</h2>
           </Link>
-          <Link to="Login">
-            <h2 className="l">Login</h2>
+          <Link to="Login ">
+            <h2 className="l font">Login</h2>
           </Link>
         </div>
         <p></p>

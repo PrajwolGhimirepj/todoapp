@@ -124,53 +124,6 @@ const List = (props) => {
   return (
     <>
       <div className="appcontainer">
-        <div className="lists font">
-          {list.map((item) => (
-            <div
-              className="huh"
-              key={item.id}
-              ref={(el) => (itemRefs.current[item.id] = el)}
-              // onClick={() => deleteItem(item.id)}
-              onMouseEnter={() => setHover(item.id)}
-              onMouseLeave={() => setHover(null)}
-              style={{
-                backgroundColor:
-                  item.uid === currentUserUID ? "#3c3490" : "#6053f1b8",
-                alignSelf:
-                  item.uid === currentUserUID ? "flex-end" : "flex-start",
-              }}
-            >
-              <div className="contexts">
-                <div
-                  className="fades"
-                  style={{
-                    opacity: item.uid === currentUserUID ? 1 : 0,
-                  }}
-                ></div>
-                <div
-                  className="contextt"
-                  style={{
-                    justifyContent:
-                      item.uid === currentUserUID ? "flex-start" : "flex-end",
-                  }}
-                >
-                  {item.content}
-                </div>
-              </div>
-              <div className="icons">
-                {/* <div className="icon" onClick={() => handelComplete(item)}>
-                  <Complete state={hover === item.id} />
-                </div> */}
-                <div className="icon" onClick={() => deleteItem(item.id)}>
-                  {/* <Delete state={hover === item.id} /> */}
-                </div>
-                {/* <div className="icon">
-                  <Star state={hover === item.id} />
-                </div> */}
-              </div>
-            </div>
-          ))}
-        </div>
         <div className="inputcontainer">
           <div className="input">
             <input
@@ -183,9 +136,56 @@ const List = (props) => {
               onKeyDown={handleKeyDown}
             />
             <button ref={buttonRef} className="font" onClick={addItem}>
-              send
+              Add
             </button>
           </div>
+        </div>
+        <div className="lists font">
+          {list.map((item) => (
+            <div
+              className="huh"
+              key={item.id}
+              ref={(el) => (itemRefs.current[item.id] = el)}
+              // onClick={() => deleteItem(item.id)}
+              onMouseEnter={() => setHover(item.id)}
+              onMouseLeave={() => setHover(null)}
+              // style={{
+              //   backgroundColor:
+              //     item.uid === currentUserUID ? "#3c3490" : "#6053f1b8",
+              //   alignSelf:
+              //     item.uid === currentUserUID ? "flex-end" : "flex-start",
+              // }}
+            >
+              <div className="contexts">
+                {/* <div
+                  className="fades"
+                  // style={{
+                  //   opacity: item.uid === currentUserUID ? 1 : 0,
+                  // }}
+                ></div> */}
+                <div
+                  className="contextt"
+                  // style={{
+                  //   justifyContent:
+                  //     item.uid === currentUserUID ? "flex-start" : "flex-end",
+                  // }}
+                >
+                  {item.content}
+                </div>
+              </div>
+              <div className="icons">
+                <div className="icon" onClick={() => handelComplete(item)}>
+                  <Complete state={hover === item.id} />
+                </div>
+                <div className="icon" onClick={() => deleteItem(item.id)}>
+                  <Delete state={hover === item.id} />
+                </div>
+                <div className="icon">
+                  <Star state={hover === item.id} />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </>

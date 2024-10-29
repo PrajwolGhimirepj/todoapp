@@ -9,7 +9,7 @@
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: initial;
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .appcontainer {
@@ -24,16 +24,12 @@
 
 .inputcontainer {
   display: flex;
-  align-items: end;
-  justify-content: start;
-  height: 15%;
+  height: 11%;
   width: 100%;
 }
 .input {
   display: flex;
   width: 100%;
-  height: 70%;
-  padding-right: 10px;
   gap: 10px;
 }
 
@@ -44,17 +40,17 @@
 }
 
 input {
-  padding: 20px;
   width: 100%;
   text-decoration: none;
   border: none;
   background-color: transparent;
   outline: none;
   text-shadow: none;
-  border-radius: 0.4rem;
+  border-radius: 0.3rem;
   /* box-shadow: 5px 10px 10px #17153b96; */
   background-color: #17153b;
   color: azure;
+  font-size: 100%;
 }
 .in {
   height: 100%;
@@ -67,10 +63,11 @@ button {
   background-color: transparent;
   outline: none;
   text-shadow: none;
-  border-radius: 0.4rem;
+  border-radius: 0.3rem;
   /* box-shadow: 5px 10px 10px #17153b96; */
   background-color: #17153b;
   color: aliceblue;
+  font-size: 12px;
 }
 button:hover {
   background-color: #17153b88;
@@ -103,7 +100,7 @@ button:hover {
   width: 100%;
   background-color: #17153b;
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: start;
   flex-direction: column;
   border-radius: 8px;
@@ -126,9 +123,10 @@ button:hover {
 
 .huh {
   border-radius: 0.4rem;
-  height: 11%;
+  height: 12%;
+  width: 100%;
+  background-color: #3c3490;
   display: flex;
-  align-items: start;
   margin-bottom: 10px;
   transition-duration: 0.3s;
   animation-name: up;
@@ -138,8 +136,8 @@ button:hover {
 }
 .huh:hover {
   background-color: #3c3490;
-  height: 12%;
-  width: 55%;
+  height: 13%;
+  width: 95%;
 }
 /* .huh:hover .fades {
   background: linear-gradient(to right, #6f67c800, red);
@@ -190,7 +188,6 @@ button:hover {
 .contexts {
   height: 100%;
   width: 80%;
-
   position: relative;
 }
 
@@ -199,9 +196,10 @@ button:hover {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   overflow: hidden;
   color: azure;
+  font-size: 15px;
 }
 .fades {
   height: 100%;
@@ -223,32 +221,22 @@ button:hover {
 }
 
 .icon {
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 50px;
   z-index: 200;
   transition-duration: 0.2s;
   transform-origin: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0%;
+
   transition-delay: 0.3s;
 }
 .icon:hover {
-  height: 45px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   z-index: 200;
   transition-duration: 0.1s;
-}
-
-.iconsC {
-  margin-top: 2px;
-  margin-right: 2px;
-  height: 40px;
-  width: 40px;
-  z-index: 200;
-  transition-duration: 0.2s;
-  transform-origin: center;
 }
 
 .iconsC:hover {
@@ -258,7 +246,7 @@ button:hover {
   transition-duration: 0.1s;
 }
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   .lists {
     height: 100%;
     width: 100%;
@@ -281,4 +269,4 @@ button:hover {
     justify-content: start;
     width: 100%;
   }
-}
+} */

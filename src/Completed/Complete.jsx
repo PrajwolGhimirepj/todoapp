@@ -67,7 +67,7 @@ const Completed = (props) => {
             className="card-c "
             key={index}
           >
-            <Card content={list} />
+            {list}
           </div>
         ))}
       </div>
