@@ -35,8 +35,9 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: center;
+  transform: translateY(70px);
   color: aliceblue;
+  font-size: 12px;
 }
 
 .container-g {
@@ -54,16 +55,16 @@ h3 {
 }
 .flex-c {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: end;
-
   padding-right: 30px;
+  padding-bottom: 30px;
   height: 100%;
   width: 100%;
 }
 .l {
-  color: aliceblue;
-  font: 11px;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
 }
 
 @media (max-width: 700px) {

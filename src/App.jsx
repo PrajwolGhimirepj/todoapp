@@ -13,7 +13,6 @@ const App = () => {
         <div className="app-container">
           <div className="nav-profile">
             <div className="profile">
-              {" "}
               <Profile />
             </div>
           </div>

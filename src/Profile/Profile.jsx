@@ -36,14 +36,14 @@ const Profile = () => {
           <Link to="/">
             <h2 className="l font">Home</h2>
           </Link>
-          <Link to="Newuser font">
+          <Link to="Newuser">
             <h2 className="l font">Singup</h2>
           </Link>
           <Link to="Login ">
             <h2 className="l font">Login</h2>
           </Link>
         </div>
-        <p></p>
+        <p> </p>
         {/* <div className="felx">
           <h2>Artwork</h2>
           <a
