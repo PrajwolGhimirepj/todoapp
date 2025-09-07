@@ -35,9 +35,6 @@ const Home = (props) => {
             <div className="listscon">
               <List getarr={getarr} getdell={getdell} />
             </div>
-            {/* <div className="completed">
-              <Completed comp={arr} deletefun={del} />
-            </div> */}
           </div>
         </div>
       </div>

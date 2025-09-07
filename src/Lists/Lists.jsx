@@ -3,13 +3,7 @@ import "./List.css";
 import Delete from "../Rive/Delete/Delete";
 import Star from "../Rive/Star/Star";
 import Complete from "../Rive/Complete/Complete";
-import {
-  collection,
-  doc,
-  updateDoc,
-  getDoc,
-  onSnapshot,
-} from "firebase/firestore";
+import { doc, updateDoc, getDoc, onSnapshot } from "firebase/firestore";
 import { db, auth } from "../firebaseconfig/firebaseconfig";
 
 const List = (props) => {
@@ -21,17 +15,28 @@ const List = (props) => {
   const buttonRef = useRef();
   const [completed, setCompleted] = useState([]);
 
-  const currentUserUID = auth.currentUser?.uid; // Get current logged-in user's UID
+  const currentUser = auth.currentUser;
 
+  // 🔥 Fetch all users’ lists
   useEffect(() => {
-    // Real-time listener for Firestore document
     const docRef = doc(db, "List", "TodoList");
-    const unsubscribe = onSnapshot(docRef, (doc) => {
-      const data = doc.data();
-      setList(data.ListItems || []);
+    const unsubscribe = onSnapshot(docRef, (docSnap) => {
+      const data = docSnap.data();
+      if (!data || !data.users) return;
+
+      let combined = [];
+      Object.values(data.users).forEach((userObj) => {
+        const { email, items } = userObj;
+        items.forEach((item) => {
+          combined.push({
+            ...item,
+            email, // attach email for display
+          });
+        });
+      });
+      setList(combined);
     });
 
-    // Cleanup the listener on unmount
     return () => unsubscribe();
   }, []);
 
@@ -46,7 +51,7 @@ const List = (props) => {
       const newCompleted = [...prevList, item.content];
       return newCompleted;
     });
-    deleteItem(item.id);
+    deleteItem(item);
   };
 
   const handelcompletedeleted = () => {
@@ -63,7 +68,7 @@ const List = (props) => {
     }
   };
 
-  // Adding Items to Firestore asynchronously after rendering locally
+  // 🔥 Add item to current user’s list
   const addItem = async () => {
     buttonRef.current.classList.add("click");
     setTimeout(() => {
@@ -71,53 +76,55 @@ const List = (props) => {
     }, 900);
 
     if (newItem.trim() !== "") {
-      const user = auth.currentUser; // Get current user
+      const user = auth.currentUser;
       if (user) {
-        const userUID = user.uid; // Fetch user's unique ID
-
-        // Add item to local state for immediate rendering
-        const newItemObject = {
-          id: list.length,
-          content: newItem,
-          uid: userUID,
-        };
-        setList((prevList) => [...prevList, newItemObject]);
-        setNewItem("");
-
-        // Fetch current list from Firestore and update
         const docRef = doc(db, "List", "TodoList");
         const docSnap = await getDoc(docRef);
-        const currentList = docSnap.data()?.ListItems || [];
+        const data = docSnap.data() || {};
 
-        // Add the new item and update Firestore
-        const updatedList = [...currentList, newItemObject];
+        // Ensure user section exists
+        if (!data.users) data.users = {};
+        if (!data.users[user.uid]) {
+          data.users[user.uid] = { email: user.email, items: [] };
+        }
+
+        const userItems = data.users[user.uid].items || [];
+        const newItemObject = {
+          id: userItems.length,
+          content: newItem,
+        };
+
+        data.users[user.uid].items = [...userItems, newItemObject];
+
         await updateDoc(docRef, {
-          ListItems: updatedList,
+          users: data.users,
         });
+
+        setNewItem("");
       } else {
         console.log("User not logged in");
       }
     }
   };
 
-  // Deleting Items from Firestore
-  const deleteItem = async (id) => {
-    const index = list.findIndex((item) => item.id === id);
-    if (index !== -1 && itemRefs.current[id]) {
-      itemRefs.current[id].classList.add("animate");
+  // 🔥 Delete item from correct user’s list
+  const deleteItem = async (item) => {
+    const user = auth.currentUser;
+    if (!user) return;
 
-      setTimeout(async () => {
-        const docRef = doc(db, "List", "TodoList");
-        const docSnap = await getDoc(docRef);
-        const currentList = docSnap.data().ListItems || [];
+    const docRef = doc(db, "List", "TodoList");
+    const docSnap = await getDoc(docRef);
+    const data = docSnap.data();
 
-        const updatedList = currentList.filter((_, idx) => idx !== index);
-        await updateDoc(docRef, {
-          ListItems: updatedList,
-        });
+    if (data && data.users && data.users[user.uid]) {
+      let userItems = data.users[user.uid].items || [];
+      userItems = userItems.filter((i) => i.id !== item.id);
 
-        setList((prevList) => prevList.filter((item) => item.id !== id));
-      }, 1000);
+      data.users[user.uid].items = userItems;
+
+      await updateDoc(docRef, {
+        users: data.users,
+      });
     }
   };
 
@@ -140,49 +147,36 @@ const List = (props) => {
             </button>
           </div>
         </div>
+
         <div className="lists font">
-          {list.map((item) => (
+          {list.map((item, idx) => (
             <div
               className="huh"
-              key={item.id}
-              ref={(el) => (itemRefs.current[item.id] = el)}
-              // onClick={() => deleteItem(item.id)}
-              onMouseEnter={() => setHover(item.id)}
+              key={idx}
+              ref={(el) => (itemRefs.current[idx] = el)}
+              onMouseEnter={() => setHover(idx)}
               onMouseLeave={() => setHover(null)}
-              // style={{
-              //   backgroundColor:
-              //     item.uid === currentUserUID ? "#3c3490" : "#6053f1b8",
-              //   alignSelf:
-              //     item.uid === currentUserUID ? "flex-end" : "flex-start",
-              // }}
+              style={{
+                backgroundColor:
+                  item.email === currentUser?.email ? "#b1b1b3ff" : "#333149b8",
+                alignSelf: "flex-start",
+              }}
             >
               <div className="contexts">
-                {/* <div
-                  className="fades"
-                  // style={{
-                  //   opacity: item.uid === currentUserUID ? 1 : 0,
-                  // }}
-                ></div> */}
-                <div
-                  className="contextt"
-                  // style={{
-                  //   justifyContent:
-                  //     item.uid === currentUserUID ? "flex-start" : "flex-end",
-                  // }}
-                >
-                  {item.content}
+                <div className="contextt">
+                  {item.content} - {item.email}
                 </div>
               </div>
               <div className="icons">
-                <div className="icon" onClick={() => handelComplete(item)}>
-                  <Complete state={hover === item.id} />
+                {/* <div className="icon" onClick={() => handelComplete(item)}>
+                  <Complete state={hover === idx} />
+                </div> */}
+                <div className="icon" onClick={() => deleteItem(item)}>
+                  <Delete state={hover === idx} />
                 </div>
-                <div className="icon" onClick={() => deleteItem(item.id)}>
-                  <Delete state={hover === item.id} />
-                </div>
-                <div className="icon">
-                  <Star state={hover === item.id} />
-                </div>
+                {/* <div className="icon">
+                  <Star state={hover === idx} />
+                </div> */}
               </div>
             </div>
           ))}

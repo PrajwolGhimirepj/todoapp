@@ -34,10 +34,11 @@ h3 {
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  transform: translateY(70px);
+  justify-content: center;
+  align-items: center;
   color: aliceblue;
   font-size: 12px;
+  transform: translateX(10px);
 }
 
 .container-g {

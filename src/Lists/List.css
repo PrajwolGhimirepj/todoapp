@@ -124,7 +124,6 @@ button:hover {
   border-radius: 0.4rem;
   height: 12%;
   width: 100%;
-  background-color: #3c3490;
   display: flex;
   margin-bottom: 10px;
   transition-duration: 0.3s;
